@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Quote & Square Calculator</title>
+</head>
+<body>
+  <h1>Random Quote</h1>
+  <blockquote id="quote">Loading...</blockquote>
+  <button onclick="getQuote()">Get New Quote</button>
+
+  <h2><a href="square.html">Go to Square Calculator</a></h2>
+
+  <script>
+    async function getQuote() {
+      const res = await fetch('/api/quote');
+      const data = await res.json();
+      document.getElementById('quote').textContent = data.quote;
+    }
+
+    window.onload = getQuote;
+  </script>
+</body>
+</html>
