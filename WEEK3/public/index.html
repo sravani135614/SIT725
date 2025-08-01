@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIT 725 Week 3</title>
+  <!-- Materialize CSS CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f08080; /* updated color */
+      text-align: center;
+    }
+    .card {
+      margin: 10px;
+    }
+    .main-img {
+      max-width: 200px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Welcome to SIT 725 Week 3</h3>
+  <p>This is a demo application that tries to use a few components from materialize and through this practical we try to have some fun with Materialize and its components</p>
+  
+  <!-- Live Demo image -->
+  <img class="main-img" src="images/livedemo.png" alt="Live Demo">
+
+  <!-- Button -->
+  <div class="container">
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons left">send</i>Click Me</a>
+  </div>
+
+  <!-- Card Section -->
+  <div class="row container">
+    
+    <!-- Kitten 1 -->
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="images/kitten.jpg" alt="Kitten">
+        </div>
+        <div class="card-content">
+          <span class="card-title">Kitten</span>
+          <p><a href="#">About Kitten</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kitten 2 -->
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="images/kitten2.jpg" alt="Kitten 2">
+        </div>
+        <div class="card-content">
+          <span class="card-title">Kitten 2</span>
+          <p><a href="#">About Kitten 2</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kitten 3 -->
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="images/kitten3.jpg" alt="Kitten 3">
+        </div>
+        <div class="card-content">
+          <span class="card-title">Kitten 3</span>
+          <p><a href="#">About Kitten 3</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

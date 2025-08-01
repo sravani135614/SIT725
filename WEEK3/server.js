@@ -1,6 +1,10 @@
-var express = require("express")
-var app = express()
-var port = process.env.port || 3000;
-app.listen(port,()=>{
-    console.log("App listening to: "+port)
-})
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Serve static files from public folder
+app.use(express.static('public'));
+
+app.listen(port, () => {
+  console.log(`App listening at http://localhost:${port}`);
+});
