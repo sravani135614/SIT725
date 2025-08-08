@@ -1,23 +1,26 @@
 const express = require('express');
 const router = express.Router();
+const Habit = require('../models/habit');
 
-// Dummy in-memory items array
-let items = [
-  { id: 1, name: 'Sample item 1' },
-  { id: 2, name: 'Sample item 2' }
-];
-
-// GET all items
-router.get('/', (req, res) => {
-  res.json(items);
+// GET all habits
+router.get('/', async (req, res) => {
+  try {
+    const habits = await Habit.find();
+    res.json(habits);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
-// POST new item
-router.post('/', (req, res) => {
-  const newItem = req.body;
-  newItem.id = items.length + 1;
-  items.push(newItem);
-  res.status(201).json(newItem);
+// POST a new habit
+router.post('/', async (req, res) => {
+  try {
+    const newHabit = new Habit(req.body);
+    const savedHabit = await newHabit.save();
+    res.status(201).json(savedHabit);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
 module.exports = router;

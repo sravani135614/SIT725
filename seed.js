@@ -1,25 +1,27 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
-const Habit = require('./models/Habit'); // Make sure this path matches your model
+const Habit = require('./models/habit'); // Import your model
+
+const MONGO_URI = process.env.MONGO_URI;
 
 async function seed() {
   try {
-    await mongoose.connect('mongodb://localhost:27017/yourdbname', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    await mongoose.connect(MONGO_URI);
 
+    // Clear existing data (optional)
     await Habit.deleteMany({});
 
-    await Habit.insertMany([
-      { name: 'Morning Walk', description: '30 minutes walk', frequency: 'daily', target: 30 },
-      { name: 'Drink Water', description: '2 liters daily', frequency: 'daily', target: 2000 }
-    ]);
+    // Insert seed data
+await Habit.insertMany([
+  { name: 'Exercise', frequency: 'daily' },
+  { name: 'Read', frequency: 'daily' },
+  { name: 'Meditate', frequency: 'weekly' }
+]);
 
-    console.log('Database seeded successfully');
-    process.exit(0);
+    console.log('Seeding complete');
+    await mongoose.disconnect();
   } catch (err) {
     console.error(err);
-    process.exit(1);
   }
 }
 
